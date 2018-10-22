@@ -12,7 +12,9 @@
     $Carac = array();
     $arraycaract=file('config.txt');
     $caractconfig=array();
+    $caractconfig2=array();
     $caractimatges=array();
+    $caractimatges2=array();
 
     #Lectura de fichero.
     $Img = fopen("imatges.txt", "r") or die("Error al leer documento.");
@@ -48,15 +50,42 @@
       $names = explode(":",$i);
       array_push($caractconfig, $names);
     }
+
     #Añadimos las caracteristicas del fichero imatges.txt a un array
-    //foreach ($u=0;$u<=count($arrayGeneral);$u++) {
-    //  $names = explode(" ",$arrayGeneral[$u]);
-    //  array_push($caractimatges, $names);
-    //}
+    
+    foreach($arrayGeneral as $u) {
+      array_push($caractimatges,$u[1] );
+      
+    }
 
-    //print_r(count($caractimatges));
+    foreach ($caractimatges as $value) {
+    	$names = explode(" ",$value);
+    	array_push($caractimatges2,$names);
+    }
 
+    foreach ($caractconfig as $value) {
+    	$names = explode(" ",$value);
+    	array_push($caractconfig2,$names);
+    }
 
+    
+
+    $longCaractimatges2=count($caractimatges2);
+
+    for ($i=0; $i < $longCaractimatges2; $i++) { 
+    	if ($caractimatges2[$i][0]!=$caractconfig[0][0]){
+    		$errorcaract=false;
+
+    	}
+    	elseif ($caractimatges2[$i][3]!=$caractconfig[1][0]) {
+    		$errorcaract=false;
+    	}
+    	elseif ($caractimatges2[$i][6]!=$caractconfig[2][0]) {
+    		$errorcaract=false;
+    	}
+
+    }
+  
     # 1. Una misma imagen (nombre de imagen) aparece dos veces en el archivo img.txt
 
     if(count($arrayNombres)>count(array_unique($arrayNombres))){
