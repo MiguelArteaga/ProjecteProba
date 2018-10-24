@@ -5,10 +5,8 @@
     <link href='estilos-quien-es-quien.css' type='text/css' rel='stylesheet' >
   </head>
 
-  <body id="bodyid" class="body1">
-  <p id="p1prova">11</p>
-  <p id="p2prova">22</p>
-  <p id="p3prova">ul</p>
+  <body>
+  <p id="p1prova" class="p1pro" ></p>
     <?php
     #Arrays que usaremos
     $arrayImg = array();
@@ -155,45 +153,54 @@
         }
     }
     }
+      $namesC = array('rubio', 'moreno', 'castany');
+        $namesG = array('si', 'no');
+        $namesS = array('hombre', 'mujer');
+        $longC = count($namesC);
+        $longGS = count($namesG);
+
+echo"<form method='post' name='formulario'>";
+        echo"<div class='general'>";
+          echo"<div class='caja1'>";
+          echo"<p>¿Color de pelo?</p>";
+            echo"<select name='cabello' id='OptCabello'>";
+                echo"<option value='0'>--Selecciona--</option>";
+              for($e=0;$e<$longC;$e++){
+                echo"<option value='$namesC[$e]'>$namesC[$e]</option>";
+              }
+            echo"</select>";
+          echo"</div>";
+          echo"<div class='caja2'>";
+          echo"<p>¿Tiene gafas?</p>";
+            echo"<select name='gafas' id='OptGafas'>";
+                echo"<option value='0'>--Selecciona--</option>";
+              for($e=0;$e<$longGS;$e++){
+                echo"<option value='$namesG[$e]'>$namesG[$e]</option>";
+              }
+            echo"</select>";
+          echo"</div>";
+          echo"<div class='caja3'>";
+          echo"<p>¿Género?</p>";
+              echo"<select name='sexo' id='OptSexo'>";
+                  echo"<option value='0'>--Selecciona--</option>";
+                for($i=0;$i<$longGS;$i++){
+                  echo"<option value='$namesS[$i]'>$namesS[$i]</option>";
+                }
+              echo"</select>";
+          echo"</div>";
+          echo"<input type='button' name='pregunta' value='Haz la pregunta' onclick='validarPregunta()'>";
+          echo"</form>";
+          echo"<div class='mensajeError'>";
+          echo"<p id='mensajeError'></p>";
+          echo"</div>";
+        echo"</div>";
+
+        echo"<input id='botoneasy' class='boton1' type='button' name='easy' value='MODO EASY'>";
     }
     ?>
     <script type="text/javascript">
       var CartaOculta='<?php echo $cartaoculta;?>'
       var arrayNombresCartas2=<?php echo json_encode($img);?>;
     </script>
-    <form action="#" method="post">
-      <div class="general">
-      <div class="caja1">
-        <p id="cabello">Cabello</p>
-        <select name="OptCabello[]">
-          <option value="Seleciona">Selecciona</option>
-          <option value="Rubio">Rubio</option>
-          <option value="Moreno">Moreno</option>
-          <option value="Castany">Castany</option>
-        </select>
-      </div>
-      <div class="caja2">
-        <p id="gafas">Gafas</p>
-        <select name="OptGafas[]">
-          <option value="Seleciona">Selecciona</option>
-          <option value="Si">Si</option>
-          <option value="No">No</option>
-        </select>
-      </div>
-      <div class="caja3">
-        <p id="sexe">Sexo</p>
-        <select name="OptSexo[]">
-          <option value="Seleciona">Selecciona</option>
-          <option value="Hombre">Hombre</option>
-          <option value="Mujer">Mujer</option>
-        </select>
-      </div>
-    </div>
-    </form>
-    <div class="boton">
-    <input type="submit" name="enviar" value="Enviar"/>
-    </div>
-
-  </div>
   </body>
 </html>

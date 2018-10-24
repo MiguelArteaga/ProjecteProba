@@ -1,8 +1,13 @@
-.bodyganado{
-  background-image: url("imagenes2/hasganado.png");
-}
-.bodyperdido{
-  background-image: url("imagenes2/hasperdido.png");
+.p1pro{
+    width: 20%;
+    height: 25%;
+    top: 8%;
+    left: 10%;
+    position: absolute;
+    font-size: 200%;
+    text-align: center;
+    margin-left: 7%;
+
 }
 
 .divoculta {
@@ -669,16 +674,12 @@ img:hover{
   font-weight: bold;
   width: 10%;
   height: 50%;
+  margin-right: 35%;
+  padding: 10%;
 }
-input[type=button], [type=reset]{
-  background-color: #D8D8D8;
-  border:none;
-  color:black;
-  padding: 1% 1%;
-  text-decoration: none;
-  margin:1% 1%;
-  cursor:pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10);
-  border-bottom: 6px solid LightSkyBlue ;
-  font-weight: bold;
-}
+
+
+
+
+
+
