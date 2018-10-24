@@ -1,6 +1,8 @@
 <html>
   <head>
     <title></title>
+    <script type="text/javascript" src="funciones.js"></script>
+    <link href='estilos-quien-es-quien.css' type='text/css' rel='stylesheet' >
   </head>
 
   <body>
@@ -121,28 +123,31 @@
     foreach ($numeros as $value) {
       array_push($arrayGeneral2, $arrayGeneral[$value][0]);
     }
-    echo"<link href='estilos-quien-es-quien.css' type='text/css' rel='stylesheet' >";
     $cartaoculta = $arrayGeneral2[0];
     $img = $arrayGeneral2;
-        $arrayDiv = [];
+    
+    $arrayDiv = [];
+    $arrayId= [];
     $divs=range(1,12);
     shuffle($divs);
     foreach ($divs as $valor) {
-      array_push($arrayDiv,"div".$valor);
+      array_push($arrayDiv,"card".$valor);
+      array_push($arrayId,"id".$valor);
     }
-    $id=['id1','id2','id3','id4','id5','id6','id7','id8','id9','id10','id11','id12'];
     
     
     $i=0;
     foreach ($img as $fotos) {
       if( substr($fotos,-3)=="jpg" or substr($fotos,-3)=="png" or substr($fotos,-4)=="jpeg"){
-        echo "<div class=$arrayDiv[$i]>";
-        echo "<img id=$id[$i] onclick='girar()' src='imagenes/$fotos' width='120' height='120'>";
+        echo "<div id='$arrayId[$i]' onclick='girar(this.id)' class='$arrayDiv[$i]'>";
+        echo "<div><img src='imagenes/$fotos' width='120' height='120'></div>";
+        echo "<div class='back'><img src='imagenes2/reversos.jpg' width='120' height='120'></div>";
         echo "</div>";
         $i=$i+1;
         if ($cartaoculta==$fotos) {
-          echo "<div class='divoculta'>";
-          echo "<img src='imagenes/$fotos' width='120' height='120'>";
+          echo "<div id='id13' class='divoculta'>";
+          echo "<div><img src='imagenes2/reversos.jpg' width='120' height='120'></div>";
+          echo "<div class='back'><img src='imagenes/$fotos' width='150' height='150'></div>";
           echo "</div>";
         }
     }
