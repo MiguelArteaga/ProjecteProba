@@ -143,8 +143,8 @@
     foreach ($img as $fotos) {
       if( substr($fotos,-3)=="jpg" or substr($fotos,-3)=="png" or substr($fotos,-4)=="jpeg"){
         echo "<div id='$arrayId[$i]' onclick='girar(this.id)' class='$arrayDiv[$i]'>";
-        echo "<div><img id='$fotos' onclick='nombreCartas(this.id)' src='imagenes/$fotos' width='120' height='120'></div>";
-        echo "<div class='back'><img src='imagenes2/reversos.jpg' width='120' height='120'></div>";
+        echo "<div><img id='$fotos' onclick='nombreCartas(this.id)' src='imagenes/$fotos' width='100' height='100'></div>";
+        echo "<div class='back'><img src='imagenes2/reversos.jpg' width='100' height='100'></div>";
         echo "</div>";
         $i=$i+1;
         if ($cartaoculta==$fotos) {
