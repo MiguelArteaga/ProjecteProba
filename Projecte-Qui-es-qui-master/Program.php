@@ -5,7 +5,10 @@
     <link href='estilos-quien-es-quien.css' type='text/css' rel='stylesheet' >
   </head>
 
-  <body>
+  <body id="bodyid" class="body1">
+  <p id="p1prova">11</p>
+  <p id="p2prova">22</p>
+  <p id="p3prova">ul</p>
     <?php
     #Arrays que usaremos
     $arrayImg = array();
@@ -140,7 +143,7 @@
     foreach ($img as $fotos) {
       if( substr($fotos,-3)=="jpg" or substr($fotos,-3)=="png" or substr($fotos,-4)=="jpeg"){
         echo "<div id='$arrayId[$i]' onclick='girar(this.id)' class='$arrayDiv[$i]'>";
-        echo "<div><img src='imagenes/$fotos' width='120' height='120'></div>";
+        echo "<div><img id='$fotos' onclick='nombreCartas(this.id)' src='imagenes/$fotos' width='120' height='120'></div>";
         echo "<div class='back'><img src='imagenes2/reversos.jpg' width='120' height='120'></div>";
         echo "</div>";
         $i=$i+1;
@@ -154,6 +157,10 @@
     }
     }
     ?>
+    <script type="text/javascript">
+      var CartaOculta='<?php echo $cartaoculta;?>'
+      var arrayNombresCartas2=<?php echo json_encode($img);?>;
+    </script>
     <form action="#" method="post">
       <div class="general">
       <div class="caja1">

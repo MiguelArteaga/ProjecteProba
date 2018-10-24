@@ -1,3 +1,10 @@
+.bodyganado{
+  background-image: url("imagenes2/hasganado.png");
+}
+.bodyperdido{
+  background-image: url("imagenes2/hasperdido.png");
+}
+
 .divoculta {
     width:  10%;
     height:  10%;
